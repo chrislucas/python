@@ -1,0 +1,12 @@
+import sys
+import __main__
+
+
+def testIO():
+    while True:
+        from sys import stdout, stdin
+        n = stdin
+        n = int(n)
+        stdout.write(str(n & 1))
+    
+if __name__ == "__main__"

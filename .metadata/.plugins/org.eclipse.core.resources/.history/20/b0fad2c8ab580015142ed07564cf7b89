@@ -1,0 +1,28 @@
+def testIO():
+    while True:
+        from sys import stdout, stdin
+        n = stdin.readline()
+        try:
+            n = int(n)
+            for i in range(n, -1, -1):
+                stdout.write(str( "1" if n & (1 << i) > 0 else "0" ))
+            stdout.write("\n")
+        except:
+            print "erro ao executar metodo de convercao para inteiro"
+            break
+
+#===============================================================================
+# troca de base logaritmos
+# log a base b = log a base c / log b base c
+# b = base do logaritmo que eh dificil de se calcular e trocada por
+# uma base conhecida, por exemplo, base 10
+#===============================================================================
+
+def log(logarithm, base):
+    from math import log10
+    return log10(logarithm) / log10(b)
+    
+if __name__ == "__main__":
+    print log(1000, 10)
+    #testIO()
+    

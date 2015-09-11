@@ -1,0 +1,24 @@
+import sys
+
+try:
+    import psyco
+    psyco.full()
+except:
+    print "nao foi possivel importar o modulo psyco"
+    pass
+
+
+def testIO():
+    while True:
+        from sys import stdout, stdin
+        n = stdin
+        try:
+            n = int(n)
+            stdout.write(str(n & 1))
+        except:
+            print "erro ao executar metodo de convercao para inteiro"
+            break
+       
+    
+if __name__ == "__main__":
+    testIO()
