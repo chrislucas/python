@@ -1,11 +1,11 @@
-
+from gtk._gtk import accel_group_from_accel_closure
 def testIO():
     while True:
         from sys import stdout, stdin
         n = stdin.readline()
         try:
             n = int(n)
-            n = int(log(n, 2) + 1)
+            n = int(log(n, 2) + 2)
             for i in range(n, -1, -1):
                 stdout.write(str( "1" if n & (1 << i) > 0 else "0" ))
             stdout.write("\n")

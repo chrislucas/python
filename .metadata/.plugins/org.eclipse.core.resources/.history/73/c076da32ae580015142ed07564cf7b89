@@ -1,4 +1,4 @@
-
+from gtk._gtk import accel_group_from_accel_closure
 def testIO():
     while True:
         from sys import stdout, stdin
