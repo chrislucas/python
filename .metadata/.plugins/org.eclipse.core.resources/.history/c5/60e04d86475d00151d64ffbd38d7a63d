@@ -1,0 +1,15 @@
+'''
+Created on Sep 17, 2015
+
+@author: christoffer
+'''
+
+import sys
+
+from sys import stdin, stdout
+n = stdin.readline()
+n = int(n)
+stdout.write("YES" if n % 2 == 0 else "NO") 
+
+if __name__ == '__main__':
+    pass

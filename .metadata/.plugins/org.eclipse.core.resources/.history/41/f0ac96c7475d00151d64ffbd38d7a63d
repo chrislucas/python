@@ -1,0 +1,17 @@
+'''
+Created on Sep 17, 2015
+
+@author: christoffer
+'''
+
+import sys
+while True:
+    try:
+        from sys import stdin, stdout
+        n = stdin.readline()
+        n = int(n)
+        stdout.write("YES\n" if n % 2 == 0 else "NO\n")
+    except:
+        pass
+if __name__ == '__main__':
+    pass
