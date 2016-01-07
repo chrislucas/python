@@ -9,9 +9,11 @@ In python, a namespace is a mapping from names to objects. Most namespaces are c
 implemented as Python dictionaries.
 Examples of namespaces are: the set of built-in names (containing functions such as abs(), and
 built-in exception names); the global names in a module, and the local names in a function invocation.
-The impportant thing to know about namespaces is that there is abosolutely no relation
+The important thing to know about namespaces is that there is abosolutely no relation
 between names in different namespaces. For example, two modules may both define a function 'X'
 without confusion
+
+Attributes may be read-only or writable. Writable Attributes are possible to assignment to attributes
 '''
 
 # union find
