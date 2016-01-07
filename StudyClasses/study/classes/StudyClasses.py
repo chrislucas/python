@@ -12,6 +12,20 @@ built-in exception names); the global names in a module, and the local names in 
 The impportant thing to know about namespaces is that there is abosolutely no relation
 between names in different namespaces. For example, two modules may both define a function 'X'
 without confusion
+
+Attributes may be read-only or writable. In the latter case, assignment to attributes is possible.
+Module attributes are writable. For example: You can write modname.value = 123.
+Writable attributes may also be deleted with the del statement (using 'del modname.value'
+, Will remove the attribute value from the object named by modname)
+
+There are at least three nested scopes whose namespaces are directly accessible
+
+* The innermost scope, which is searcjed first, contains the local names
+* The scope of any enclosing funcions
+* The next to last scope contains the current module's global names
+* The outermost scope, is the namespace containing built-in names
+
+
 '''
 
 # union find
