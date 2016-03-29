@@ -13,3 +13,18 @@ http://stackoverflow.com/questions/9602856/most-efficient-way-to-split-strings-i
 
 read EOF
 http://stackoverflow.com/questions/13001212/read-n-test-cases-from-file-in-python
+
+
+Lista interessante de algoritmos
+https://www.cs.berkeley.edu/~vazirani/algorithms/chap1.pdf
+
+fast calculate bit and between A and B
+http://math.stackexchange.com/questions/1073532/how-to-find-bitwise-and-of-all-numbers-for-a-given-range
+http://www.programcreek.com/2014/04/leetcode-bitwise-and-of-numbers-range-java/
+http://stackoverflow.com/questions/31949524/bitwise-and-for-range-of-numbers
+
+bitwise
+https://wiki.python.org/moin/BitwiseOperators
+
+cracking pin
+https://www.usenix.org/legacy/event/mobisys05/tech/full_papers/shaked/shaked.pdf
