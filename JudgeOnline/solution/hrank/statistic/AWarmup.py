@@ -9,7 +9,7 @@ interesante http://www.geeksforgeeks.org/competitive-programming-conquering-a-gi
 #https://www.hackerrank.com/contests/intro-to-statistics/challenges/basic-statistics-warmup-2
 
 from sys import stdin, stdout
-import math
+from math import sqrt
 
 def readAndSplit(fmt):
     return stdin.readline().split(fmt)
@@ -34,6 +34,15 @@ def test():
 def readFloatList(fmt):
     return [float(e) for e in stdin.readline().split(fmt)]
 
+def tryInt(n):
+    try:
+        return int(n)
+    except ValueError:
+        return n
+
+def readIntList(fmt):
+    return [tryInt(e) for e in stdin.readline().split(fmt)]
+
 def mean(numbers):
     _sum = 0.0
     sz  = len(numbers)
@@ -42,16 +51,22 @@ def mean(numbers):
     return _sum / sz
 
 def median(numbers):
-    sz = len(numbers) - 1
+    sz = len(numbers)
+    md = int(sz/2)
     numbers.sort()
-    return numbers[sz / 2] if (sz + 1) % 2 == 1 else (numbers[ (sz + 1) / 2] + numbers[ (sz) / 2]) / 2 
+    return numbers[md] if sz % 2 == 1 else (numbers[md-1] + numbers[md]) / 2 
 
 def mode(numbers):
     numbers.sort()
     mapNumbers = {}
     maxValue = 0
     for e in numbers:
-        if(mapNumbers.has_key(e)):
+        '''
+        mapNumbers.has_key()
+        has key foi retirado na versao 3.x
+        legal pytho
+        '''
+        if(e in mapNumbers):
             mapNumbers[e] += 1
         else:
             mapNumbers[e] = 1
@@ -69,20 +84,31 @@ def standartDeviation(numbers, meanValue):
 
 #mode([10, 20, 23, 10, 5, 5, 6, 7, 5])
 
-
-
+def sepIntFrinDec(number, dec):
+    intPart = int(number * dec / dec)
+    decPart = int(number * dec % dec)
+    stdout.write("%d" % intPart)
+    if(decPart>0):
+        stdout.write(".%d" % decPart)
+    stdout.write("\n")
+        
 q = readInt()
-numbers = readFloatList(" ")
+numbers = readIntList(' ')
 
 meanVal = mean(numbers)
 meadVal = median(numbers)
 modeVal = mode(numbers)
 stndVal = standartDeviation(numbers, meanVal)
 
-stdout.write( "%.0f\n" if meanVal == int(meanVal) else "%.1f\n" % (meanVal))
-stdout.write( "%.0f\n" if meadVal == int(meadVal) else "%.1f\n" % (meadVal))
-stdout.write( "%.0f\n" if modeVal == int(modeVal) else "%.1f\n" % (modeVal))
-stdout.write( "%.0f\n" if stndVal == int(stndVal) else "%.1f\n" % (stndVal))
+sepIntFrinDec(meanVal, 10)
+sepIntFrinDec(meadVal, 10)
+sepIntFrinDec(modeVal, 10)
+sepIntFrinDec(stndVal, 10)
+
+#stdout.write( "%.0f\n" if meanVal == int(meanVal) else "%.1f\n" % (meanVal))
+#stdout.write( "%.0f\n" if meadVal == int(meadVal) else "%.1f\n" % (meadVal))
+#stdout.write( "%.0f\n" if modeVal == int(modeVal) else "%.1f\n" % (modeVal))
+#stdout.write( "%.0f\n" if stndVal == int(stndVal) else "%.1f\n" % (stndVal))
 
 if __name__ == '__main__':
     pass
