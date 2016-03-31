@@ -80,7 +80,7 @@ def standartDeviation(numbers, meanValue):
     for e in numbers:
         s += (e - meanValue) ** 2
     
-    return math.sqrt(s / len(numbers))
+    return sqrt(s / len(numbers))
 
 #mode([10, 20, 23, 10, 5, 5, 6, 7, 5])
 
