@@ -11,6 +11,9 @@ class CompIO():
     def __init__(self):
         pass
     
+    def getMapInt(self, fmt):
+        return map(int, stdin.readline().splt(fmt))
+    
     def readAndSplit(self, fmt):
         return stdin.readline().split(fmt)
 
@@ -29,6 +32,9 @@ class CompIO():
         else:
             stdout.write(fmt % str(_str))   
     
+    def write(self, _str):
+        stdout.write("%s" % str(_str))
+    
     # http://stackoverflow.com/questions/455612/limiting-floats-to-two-decimal-points
     def writeDouble(self, _str, fmt):
         stdout.write(fmt % float(str(_str)))
@@ -40,9 +46,19 @@ def s():
     while True:
         try:
             n = CompIO.readFloar()
+            CompIO().write(n)
         except:
             break
-        
+
+'''
+formatando a saida
+https://docs.python.org/3/tutorial/inputoutput.html
+'''
+
+#https://docs.python.org/3/library/functions.html#input
+
+#inn = input('---> ')
+#CompIO().write(inn)
 
 
 if __name__ == '__main__':

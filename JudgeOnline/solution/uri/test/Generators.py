@@ -56,8 +56,11 @@ def iterate(it):
 def iteratorMap():
     for item in {"x": 1, "y": 2}:
         print(item)
-
+'''
 iteratorMap()
-
+'''
+        
+        
+        
 if __name__ == '__main__':
     pass
