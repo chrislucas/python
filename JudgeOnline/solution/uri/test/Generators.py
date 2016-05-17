@@ -59,7 +59,29 @@ def iteratorMap():
 '''
 iteratorMap()
 '''
-        
+
+'''
+https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
+
+Frase interessante do tutorial sobre Yield
+
+To yield: produzie, originar, obter
+so to speak: 'Por assim dizer'
+
+"when it's beneficial to have the ability to create a "function" which,
+instead of simply returning a single value, is able to yield a series of values"
+
+Teoriacamente, ao usar o yield a funcao nao retornar varias valores, pois o ato de retornar
+implica em devolver o controle do fluxo da computação à quem chamou a função
+
+O uso do 'Yield' implica que  'o retorno' é temporario e a funcao que utilizou yield
+tera o controle novamente do fluxo no futuro
+
+Funcoes com a capacidade
+
+'''
+
+
         
         
 if __name__ == '__main__':
