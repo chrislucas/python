@@ -3,6 +3,7 @@ Created on May 18, 2016
 
 @author: christoffer
 '''
+from solution.hrank.statistic.day1.AWarmup import readAndSplit
 
 '''
 https://www.urionlinejudge.com.br/judge/pt/problems/view/1357
@@ -21,7 +22,7 @@ class CompIO():
         return stdin.readline().split(fmt)
     
     def readStringList(self, fmt):
-        return [str(e) for e in stdin.readline().split(fmt)]
+        return [e for e in readAndSplit(fmt)]
     
     def readInt(self):
         return int(stdin.readline())
@@ -30,7 +31,7 @@ class CompIO():
         return float(stdin.readline())
     
     def readLine(self):
-        return str(stdin.readline())
+        return stdin.readline()
     
     # python nao suporta overload de metodos
     # mas suporta default values, como no parametro fmt
@@ -131,23 +132,23 @@ def print_numeros(_list = None):
 def reader():
     try:
         while True:
+            '''
             x = io.readInt()
             if(x == 0):
-                break
+                break;
             
-            _str = io.readLine()
-            if(_str == 'S'):
+            if(stdin.readline() == "S"):
                 _list = io.readAndSplit('')
                 print_braille(_list)
-            
             else:
-                i = 0
-                _matrix = []
-                while i < x:
-                    _matrix[i] = "".join(io.readStringList(" "))
-                    i += 1
-                print_numeros(_matrix)  
-    except Exception:
+            '''
+            _matrix = []
+            for i in range(0, 3):
+                _matrix.append(io.readStringList(" ")) 
+                i += 1
+            print_numeros(_matrix)
+                
+    except IOError:
         pass
 
 reader()
