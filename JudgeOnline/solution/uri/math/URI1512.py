@@ -3,7 +3,9 @@ Created on May 4, 2016
 
 @author: christoffer
 '''
-from operator import mod
+#from operator import mod
+
+
 '''
 Usando o principio da inclusao exclusao
 dado um numero NUM contar quantos deles sao multiplos de A e B
