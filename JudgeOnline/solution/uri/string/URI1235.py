@@ -1,7 +1,11 @@
 '''
-Created on Apr 27, 2016
+Created on 19 de mai de 2016
 
-@author: christoffer
+@author: C.Lucas
+
+DONE
+https://www.urionlinejudge.com.br/judge/pt/problems/view/1235
+
 '''
 
 from sys import stdin, stdout
@@ -53,27 +57,34 @@ class CompIO():
     
     def readIntList(self, fmt):
         return [int(e) for e in stdin.readline().split(fmt)]
+
+io = CompIO()
+
+def process(_str):
+    _len = len(_str)-1
+    _mid = _len/2-1 if _len % 2 == 0 else _len/2
+    _mid = int(_mid)
+    _ans = [None] * _len
+    count = 0
+    for i in range(0, _len):
+        if(i <= _mid):
+            idx = _mid - i
+        else:
+            idx = (_len-1) - count
+            count += 1
+        _ans[idx] = _str[i]
     
-def s():
-    while True:
-        try:
-            n = CompIO.readFloat()
-            CompIO().write(n)
-        except:
-            break
+    io.writeString("".join(_ans), "%s\n")
+    
+def solution():
+    n = io.readInt()
+    i = 0
+    while i < n:
+        _str = io.readLine()
+        process(_str)
+        i += 1
 
-s()
-
-'''
-formatando a saida
-https://docs.python.org/3/tutorial/inputoutput.html
-'''
-
-#https://docs.python.org/3/library/functions.html#input
-
-#inn = input('---> ')
-#CompIO().write(inn)
-
+solution()
 
 if __name__ == '__main__':
     pass
