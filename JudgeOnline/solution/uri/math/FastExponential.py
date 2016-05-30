@@ -28,7 +28,7 @@ def expFF(b, e):
     while e > 1:
         if e % 2 == 1:
             rs *= b
-        e /= 2
+        e //= 2
         b *= b 
     return rs * b
 
