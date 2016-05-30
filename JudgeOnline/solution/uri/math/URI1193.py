@@ -39,9 +39,9 @@ def expSquaringIterative(b, e, acc = 1):
         return acc * b
     while e > 1:
         if e % 2 == 0:
-            e /= 2
+            e //= 2
         else:
-            e = (e-1)/2
+            e = (e-1)//2
             acc *= b
         b *= b
     return b * acc
@@ -56,7 +56,7 @@ def binToDex(n):
     e = len(n) - 1
     for i in range(0, len(n)):
         val = int(n[i])
-        ans += expSquaringIterative(2, e - i) * val 
+        ans += expSquaringIterative(2, e-i) * val 
     return ans
 
 def decToBin(n):
@@ -73,7 +73,12 @@ def hexToDec(n):
     e = len(n) - 1
     for i in range(0, len(n)):
         val = n[i]
-        val = int(hexadecimal[val]) if hexadecimal.has_key(val) else int(val)
+        
+        '''
+           metodo  has_key em dicionario no python 3 foi retirado
+           use o in
+        '''
+        val = int(hexadecimal[val]) if val in hexadecimal else int(val)
         ans += val * expSquaringIterative(16, e - i) 
     return ans
     
@@ -82,12 +87,12 @@ def hexToDec(n):
 def solution(n, base):   
     return None
 
-#print(expSquaringIterative(3, -9))
-#print(expSquaringRecursive(3, -9))
+print(expSquaringIterative(3, -3))
+print(expSquaringRecursive(3, -3))
 
 
-stdout.write(hexToDec('8f'))
-stdout.write(binToDex('1001'))
+stdout.write("%d\n" % (hexToDec('8f')))
+stdout.write("%d\n" %  (binToDex('1001')))
     
 if __name__ == '__main__':
     pass
