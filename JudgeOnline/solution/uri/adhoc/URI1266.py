@@ -1,9 +1,8 @@
 '''
-Created on Apr 27, 2016
+Created on May 31, 2016
 
 @author: christoffer
 '''
-
 from sys import stdin, stdout
 
 class CompIO():
@@ -45,44 +44,14 @@ class CompIO():
         stdout.write(fmt % args)
     
     # http://stackoverflow.com/questions/455612/limiting-floats-to-two-decimal-points
-    def writeDouble(self=None, _str=None, fmt=None):
-        if fmt is None or _str is None:
-            return
+    def writeDouble(self, _str, fmt):
         stdout.write(fmt % float(str(_str)))
         
-    def readFloatList(self=None, fmt=None):
-        if fmt is None:
-            return
+    def readFloatList(self, fmt):
         return [float(e) for e in stdin.readline().split(fmt)]
     
-    def readIntList(self=None, fmt=None):
+    def readIntList(self=None, fmt):
         return [int(e) for e in stdin.readline().split(fmt)]
-    
-def s():
-    while True:
-        try:
-            n = CompIO.readFloat()
-            CompIO().write(n)
-        except:
-            break
-
-#s()
-
-'''
-formatando a saida
-https://docs.python.org/3/tutorial/inputoutput.html
-'''
-'''
-unpacking
-'''
-a,b,c =  CompIO.readFloatList(None, " ")
-print("%f %f %f" % (a,b,c))
-
-#https://docs.python.org/3/library/functions.html#input
-
-#inn = input('---> ')
-#CompIO().write(inn)
-
 
 if __name__ == '__main__':
     pass
