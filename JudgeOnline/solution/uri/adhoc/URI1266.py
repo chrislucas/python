@@ -52,6 +52,16 @@ class CompIO():
     
     def readIntList(self=None, fmt):
         return [int(e) for e in stdin.readline().split(fmt)]
+    
 
+def solver(array):
+    i = 0
+    while( (i + 4) < len(array)):
+        i += 4
+    if i == len(array):
+        return
+    else :
+        i
+        
 if __name__ == '__main__':
     pass
