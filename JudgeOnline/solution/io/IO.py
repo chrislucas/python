@@ -62,12 +62,17 @@ def s():
         except:
             break
 
-s()
+#s()
 
 '''
 formatando a saida
 https://docs.python.org/3/tutorial/inputoutput.html
 '''
+'''
+unpacking
+'''
+a,b,c =  CompIO.readFloatList(None, " ")
+print("%f %f %f" % (a,b,c))
 
 #https://docs.python.org/3/library/functions.html#input
 
