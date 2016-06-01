@@ -56,12 +56,7 @@ class CompIO():
 
 def solver(array):
     i = 0
-    while( (i + 4) < len(array)):
-        i += 4
-    if i == len(array):
-        return
-    else :
-        i
+
         
 if __name__ == '__main__':
     pass
