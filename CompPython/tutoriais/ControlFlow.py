@@ -7,12 +7,9 @@ Created on 18 de mai de 2016
 '''
 https://docs.python.org/3/tutorial/controlflow.html
 '''
-
-
 '''
 arbitrary arguments
 '''
-
 def arbitrary_args (*args, _str='/'):
     return _str.join(args)
 
