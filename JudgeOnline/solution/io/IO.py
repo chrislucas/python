@@ -32,14 +32,20 @@ class CompIO():
     # python nao suporta overload de metodos
     # mas suporta default values, como no parametro fmt
     # abaixo
-    def writeString(self, _str, fmt = None):
+    def writefmt(self, data, fmt = None):
         if(fmt is None):
-            stdout.write(_str)
+            stdout.write(data)
         else:
-            stdout.write(fmt % str(_str))   
+            stdout.write(fmt % (data))   
     
-    def write(self, _str):
-        stdout.write("%s" % str(_str))
+    def writestr(self, data, fmt = None):
+        if(fmt is None):
+            stdout.write(data)
+        else:
+            stdout.write(fmt % str(data))  
+    
+    def write(self, data):
+        stdout.write("%s" % str(data))
     
     def writeArgs(self, fmt, *args):
         stdout.write(fmt % args)
