@@ -13,6 +13,14 @@ from sys import stdout
 def log(lg, base):
     return log10(lg) / log10(base)
 
+'''
+equivalencia - funcao inversa
+funcao exponencial e funcao logaritmica
+x = b ^ Y -> log x base b  = y
+'''
+
+print("%f %f" % ( 4**3, log(4**3, 4)))
+
 stdout.write("%f" % (log(100, 1000)))
 
 if __name__ == '__main__':

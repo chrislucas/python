@@ -15,6 +15,8 @@ class Quickunion:
         '''
         self.id = [x for x in range(0, n)]
         None
+        
+    
 
 
 if __name__ == '__main__':
