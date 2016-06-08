@@ -4,6 +4,7 @@ Created on Jun 3, 2016
 @author: christoffer
 '''
 from sys import stdout
+from math import log, log10
 
 
 def tableTruth(n):
@@ -26,7 +27,23 @@ def table(n):
         i+=1
 
 #table(6)
-tableTruth(3)
+#tableTruth(3)
+
+'''
+https://en.wikipedia.org/wiki/Bitwise_operation#AND
+'''
+def numbersOfBits(n):
+    # famosa troca de bases para efeutar log n base 2
+    return int( log10(n) /log10(2) ) + 1
+
+def opNot(number):
+    acc = 0
+    for n in range(0, numbersOfBits(number)) :
+        acc = acc + (2 ** n) * (((number // (2 ** n)) % 2 + 1) % 2)
+    return acc
+
+print(opNot(100))
+print(~100)
 
 if __name__ == '__main__':
     pass
