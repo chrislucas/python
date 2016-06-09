@@ -41,9 +41,6 @@ def fermatFactorization(n):
 
     return f
 
-
-
-
 def log(lg, base):
     return log10(lg) / log10(base)
 
@@ -86,10 +83,10 @@ def f():
     https://acmproblemsolver.wordpress.com/2012/08/07/solution-of-acm-uva-10551-basic-remains/
     '''
 
-    sz = len(number[0]) - 1
+    sz = len(number[2]) - 1
     x = 0
     for n in range(0, sz):
-        if(number[0][n] == '1'):
+        if(number[2][n] == '1'):
             #x = expmodular(2, sz-n, mod) % mod
             x = x << 1
             x = x + 1
