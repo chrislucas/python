@@ -6,8 +6,8 @@ __pycache__/
 *.so
 
 # arquivos do projeto pydev eclipse
-.project
-.pydevproject
+*.project
+*.pydevproject
 
 # Distribution / packaging
 .Python

@@ -5,6 +5,12 @@ Created on Jun 3, 2016
 
 http://algs4.cs.princeton.edu/15uf/
 http://algs4.cs.princeton.edu/15uf/QuickFindUF.java.html
+
+http://marathoncode.blogspot.com.br/search/label/union-find
+http://br.spoj.com/problems/REDOTICA/
+http://br.spoj.com/problems/TEOBALDO/
+http://www.spoj.com/problems/PT07Y/
+https://charieblog.wordpress.com/2011/09/15/list-of-interesting-problems-on-spoj/
 '''
 import urllib2
 from sys import stdout
