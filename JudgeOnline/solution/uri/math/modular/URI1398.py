@@ -25,7 +25,14 @@ def readEOF(fmt = None):
                 line = stdin.readline()
             else:
                 line = stdin.readline().split(fmt)
+            while True:
+                ch = stdin.read()
+                if ch == '#':
+                    break
+                line += ch
         except:
             pass
+        
+readEOF()
 if __name__ == '__main__':
     pass
