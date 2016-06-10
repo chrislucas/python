@@ -13,6 +13,19 @@ https://en.wikipedia.org/wiki/Primality_test
 Number Theory - 1
 https://www.hackerearth.com/notes/number-theory-1/
 '''
+from sys import stdin
 
+def run(line):
+    return None
+
+def readEOF(fmt = None):
+    while True:
+        try:
+            if fmt == None:
+                line = stdin.readline()
+            else:
+                line = stdin.readline().split(fmt)
+        except:
+            pass
 if __name__ == '__main__':
     pass
