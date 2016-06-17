@@ -4,6 +4,10 @@ Created on May 20, 2016
 @author: christoffer
 '''
 
+'''
+Procurar por solucao em O(kLogn) 
+http://stackoverflow.com/questions/4845260/josephus-for-large-n-facebook-hacker-cup
+'''
 
 def solIterative(p, j):
     s = 1
