@@ -89,8 +89,8 @@ class WeightQuickUnion:
         root(self, idx)
     
     def union(self, p, q):
-        rootP = int(p)
-        rootQ = int(q)
+        rootP = root(p)
+        rootQ = root(q)
         if rootP == rootQ:
             return None
         # se o n P tem mais nos associados a ele do que NO Q

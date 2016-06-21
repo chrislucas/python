@@ -54,11 +54,11 @@ class WeightQuickUnion:
             return None
         # se o n P tem mais nos associados a ele do que NO Q
         elif(self.he[rootP] > self.he[rootQ]):
-            id[rootQ] = rootP           # o NO Q tera sua raiz modificada para raiz de P
+            self.id[rootQ] = rootP           # o NO Q tera sua raiz modificada para raiz de P
             self.he[rootP] += self.he[rootQ]      # o pesso da raiz Q eh adicionado a raiz P
         
         else:
-            id[rootP] = rootQ
+            self.id[rootP] = rootQ
             self.he[rootQ] += self.he[rootP]
     
     def isConnected(self, p, q):
