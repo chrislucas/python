@@ -45,7 +45,7 @@ class WeightQuickUnion:
     def root(self, idx):
         if idx == self.id[idx]:
             return idx
-        self.root(self, idx)
+        return self.root(self.id[idx])
     
     def union(self, p, q):
         rootP = self.root(p)
@@ -67,7 +67,7 @@ class WeightQuickUnion:
         return rp == rq
     
     def infoData(self):
-        print(id)
+        print([x for x in self.id])
 
 def runTestWeightUF():
     ufw = WeightQuickUnion(10)
