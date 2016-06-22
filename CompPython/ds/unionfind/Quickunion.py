@@ -45,13 +45,13 @@ class Quickunion:
         return idx
     
     def isConnected(self, p, q):
-        rp = root(p) 
-        rq = root(q)
+        rp = self.root(p) 
+        rq = self.root(q)
         return rp == rq
     
     def union(self, p, q):
-        rp = root(p)
-        rq = root(q)
+        rp = self.root(p)
+        rq = self.root(q)
         self.id[rp] = rq
         
 '''
@@ -86,29 +86,37 @@ class WeightQuickUnion:
     def root(self, idx):
         if idx == self.id[idx]:
             return idx
-        root(self, idx)
+        return self.root(self.id[idx])
     
     def union(self, p, q):
-        rootP = root(p)
-        rootQ = root(q)
+        rootP = self.root(p)
+        rootQ = self.root(q)
         if rootP == rootQ:
             return None
         # se o n P tem mais nos associados a ele do que NO Q
-        elif(he[rootP] > he[rootQ]):
-            id[rootQ] = rootP           # o NO Q tera sua raiz modificada para raiz de P
-            he[rootP] += he[rootQ]      # o pesso da raiz Q eh adicionado a raiz P
+        elif(self.he[rootP] > self.he[rootQ]):
+            self.id[rootQ] = rootP           # o NO Q tera sua raiz modificada para raiz de P
+            self.he[rootP] += self.he[rootQ]      # o pesso da raiz Q eh adicionado a raiz P
         
         else:
-            id[rootP] = rootQ
-            he[rootQ] += he[rootP]
+            self.id[rootP] = rootQ
+            self.he[rootQ] += self.he[rootP]
     
     def isConnected(self, p, q):
-        rp = root(p) 
-        rq = root(q)
+        rp = self.root(p) 
+        rq = self.root(q)
         return rp == rq
     
     def infoData(self):
-        print(id)
+        _list = [i for i in self.id]
+        print(_list)
+
+'''
+Sel parameter python
+http://www.programiz.com/article/python-self-why
+https://pythontips.com/2013/08/07/the-self-variable-in-python-explained/
+http://stackoverflow.com/questions/6990099/explaining-the-python-self-variable-to-a-beginner
+'''
 
 def runTestWeightUF():
     ufw = WeightQuickUnion(10)
