@@ -30,7 +30,7 @@ def josephusPermutation(n, k):
     # apos o salto. Assim que eliminamos o valor k da permutacao
     # comecamos a contagem a partir do elemento k+1
     for i in range(1, n+1):
-        p = (i + (k-1)) % n + 1
+        p = (i + (k-1)) % i + 1
     return p
 
 print(josephusPermutation(14,2))
