@@ -8,7 +8,7 @@ class Stack(object):
     '''
     classdocs
     '''
-    def __init__(self, params):
+    def __init__(self, params = None):
         '''
         Constructor
         '''
@@ -29,6 +29,8 @@ class Stack(object):
     def size(self):
         return len(self.stack)
     
+stack = Stack()
+print(stack)
     
     
 if __name__ == 'main':

@@ -2,6 +2,9 @@
 Created on Apr 27, 2016
 
 @author: christoffer
+
+https://www.urionlinejudge.com.br/judge/pt/problems/view/1291
+DONE
 '''
 from sys import stdin, stdout
 import math

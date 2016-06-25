@@ -44,6 +44,7 @@ def bottomUp(array):
         return ans
 
 bottomUp(van_seq)
+print(0x0f)
     
 if __name__ == '__main__':
     pass
