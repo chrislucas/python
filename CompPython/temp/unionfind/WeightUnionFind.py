@@ -76,4 +76,7 @@ def runTestWeightUF():
     ufw.union(3, 2)
     ufw.infoData()
     
-runTestWeightUF()      
+runTestWeightUF()
+
+if __name__ == '__main__':
+    pass      
