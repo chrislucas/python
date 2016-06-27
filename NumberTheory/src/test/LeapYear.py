@@ -8,6 +8,7 @@ https://www.urionlinejudge.com.br/judge/pt/problems/view/1279
 
 https://en.wikipedia.org/wiki/Leap_year
 '''
+from sys import stdout
 
 '''
 No calendario gregoriano, a maioria dos anos multiplos de 4 sao anos bissextos. A cada quatro
@@ -34,7 +35,7 @@ def isLeapYear(year):
     if ( year % 4 > 0):
         return False
     elif( year % 100 > 0):
-      return True
+        return True
     elif( year % 400 > 0):
         return False
     else:
@@ -43,7 +44,7 @@ def isLeapYear(year):
 def runTest():
     lst = [1996, 1600, 1700, 1800, 1990, 2000, 2016]
     for year  in lst:
-        print(isLeap(year))
+        stdout.write("%s %s\n" % ( isLeap(year), isLeapYear(year)))
 
 runTest()
 
