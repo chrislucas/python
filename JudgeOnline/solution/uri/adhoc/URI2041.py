@@ -7,7 +7,6 @@ https://www.urionlinejudge.com.br/judge/pt/problems/view/2041
 '''
 from sys import stdin, stdout
 
-
 def solve(k):
     strA = '3'
     i = 1
