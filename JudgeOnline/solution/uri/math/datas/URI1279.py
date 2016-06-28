@@ -45,12 +45,12 @@ def strDivBy3(_str):
 
 def strDivBy4(_str):
     # slicing string
-    s = _str[-len(_str):2]
+    s = _str[-2:]
     num = int(s)
     return num % 4 == 0
 
 def strDivBy5(_str):
-    lastDigit = int(_str[len(_str) - 1])
+    lastDigit = int(_str[-1:])
     return lastDigit == 0 or lastDigit == 5
 
 def strDivBy15(_str):
@@ -58,8 +58,17 @@ def strDivBy15(_str):
     #return n % 3 == 0 and n % 5 == 0
     return strDivBy3(_str) and strDivBy5(_str)
 
+def strDivBy100(_str):
+    return int(_str[-2:]) == 0
+
+def divBy100(num):
+    return (num % 100) % 10 == 0
+
+def strDivBy400(_str):
+    return strDivBy100(_str) and strDivBy4(_str)
+
 def strDivBy55(_str):
-    return None
+    return strDivBy11(_str) and strDivBy5(_str)
 
 def strDivBy11(_str):
     lf = 0
@@ -82,6 +91,7 @@ def runTest():
 #runTest()
 
 print(strDivBy4("43143543534534534512"))
+print(strDivBy100("4314354353453453451200"))
 
 def run():
     while True:
