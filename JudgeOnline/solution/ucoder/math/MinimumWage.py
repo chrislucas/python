@@ -4,6 +4,10 @@ Created on 22 de jun de 2016
 @author: chrislucas
 
 https://ucoder.com.br/problems/1267/
+https://ucoder.com.br/problems/?q=&contest_text=V+MARATONA+DE+PROGRAMA%C3%87%C3%83O+INTERFATECS+2016+1%C2%AA+Fase
+https://ucoder.com.br/problems/?q=&contest_text=IV+MARATONA+DE+PROGRAMA%C3%87%C3%83O+INTERFATECs+2015
+https://ucoder.com.br/problems/?q=&contest_text=Interfatecs+2014+1%C2%AA+fase
+https://ucoder.com.br/problems/?q=&contest_text=Interfatecs+2014+2%C2%AA+fase
 '''
 from sys import stdin, stdout
 
