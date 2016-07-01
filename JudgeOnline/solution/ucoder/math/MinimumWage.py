@@ -11,22 +11,28 @@ https://ucoder.com.br/problems/?q=&contest_text=Interfatecs+2014+2%C2%AA+fase
 '''
 from sys import stdin, stdout
 
-def calcTest(months, receivePerHour, hourPerMonth, per):
+def valor_percentual(months, receivePerHour, hourPerMonth, per):
     return months * receivePerHour * hourPerMonth * per
 
 def valor_futuro(capital, tax, time):
     return capital * ((1 + tax) ** time)
 
-'''
-M = C * ( (1 + TAX) ^ TIME)
-M = 17627.81
-TAX (17627.81/C) ^ (1/TIME) - 1
-'''
-'''
-c = calcTest(3, 120, 160, .3)
-d = ((17627.81/c) ** (1/3))-1
-print("%f %f %f\n" % (c, valor_futuro(c, 1/100, 3), d)  )
-'''
+def f_juros(v_futuro, capital):
+    return v_futuro - capital
+
+
+def runTest():
+    '''
+        M = C * ( (1 + TAX) ^ TIME)
+        M = 17627.81
+        TAX (17627.81/C) ^ (1/TIME) - 1
+    '''
+    c = valor_percentual(1, 120, 160, .3)
+    #d = ((17627.81/c) ** (1/3))-1
+
+    stdout.write("%f %f\n" % (c, valor_futuro(5000, 4/100, 5))  )
+
+runTest()
 
 def calc (months, receivePerHour, hourPerMonth):
     return months * receivePerHour * hourPerMonth
@@ -55,7 +61,7 @@ def run():
 120.00 27.00 160.00 70.00 71.00 4.60
 '''
 
-run()
+#run()
 
 if __name__ == '__main__':
     pass
