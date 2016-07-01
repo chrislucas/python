@@ -10,12 +10,6 @@ http://www.somatematica.com.br/fundam/critdiv.php
 from math import log10
 from sys import stdout, stdin
 
-def isLeap(year):
-    if( (year % 4 == 0) and (year % 100 > 0 or year % 400 == 0) ):
-        return True
-    else:
-        return False
-
 def numDigits(num):
     return int(log10(num))
  
@@ -65,7 +59,9 @@ def divBy100(num):
     return (num % 100) % 10 == 0
 
 def strDivBy400(_str):
-    return strDivBy100(_str) and strDivBy4(_str)
+    return strDivBy100(_str) and strDivBy4(_str) and (_str.find('2200') == -1)
+    #n = _str[-4:-2]
+    #return int(n) % 4 == 0
 
 def strDivBy55(_str):
     return strDivBy11(_str) and strDivBy5(_str)
@@ -94,33 +90,47 @@ def runTest():
 #print(strDivBy100("4314354353453453451200"))
 
 def isLeapYearV2(num):
-    if( strDivBy4(num) and (not strDivBy100(num) or strDivBy400(num) ) ):
+    A = strDivBy4(num)
+    B = strDivBy400(num)
+    C = strDivBy100(num)
+    #if( ( A or B ) and ( not C or B ) ):
+    if( (A and not C) or B ):
+        return True
+    else:
+        return False
+    
+def isLeap(year):
+    if( (year % 4 == 0 or year % 400 == 0) and (not (year % 100 == 0) or year % 400 == 0)  ):
         return True
     else:
         return False
 
-
 def run():
     breakLine = False
+    #f = open('outputURI1279', 'w')
     while True:
         try:
             num = stdin.readline()
-            num = num.rstrip('\r\n')
-            _text = ''
             if(breakLine):
                 stdout.write('\n')
+            num = num.rstrip('\r\n')
+            _text = ''
             F = False
+            Leap = False
             if(isLeapYearV2(num)):
                 #_text.append("This is leap year.")
                 _text +='This is leap year.\n'
                 F = True
-                if(strDivBy55(num)):
+                Leap = True
+            if(strDivBy15(num)):
+                #_text.append('This is huluculu festival year.') 
+                _text += 'This is huluculu festival year.\n'
+                F = True
+                
+            if(Leap and strDivBy55(num)):
                     #_text.append('This is buluculu festival year.')
                     _text += 'This is bulukulu festival year.\n'
-            if(strDivBy15(num)):
-                F = True
-                #_text.append('This is huluculu festival year.') 
-                _text += 'This is huluculu festival year.\n'               
+                               
             if(not F):
                 #_text.append('This is an ordinary year.')
                 _text += 'This is an ordinary year.\n'
@@ -128,9 +138,10 @@ def run():
                 #_format = "%s" if t == 0 else "\n%s"  
                 #stdout.write(_format % (_text[t]))
             stdout.write(_text)
+            #stdout.flush()
             breakLine = True
         except Exception as e:
-            #print(e)
+            print(e)
             break
 run()
 
