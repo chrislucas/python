@@ -10,7 +10,6 @@ http://www.somatematica.com.br/fundam/critdiv.php
 from math import log10
 from sys import stdout, stdin
 
-
 def isLeap(year):
     if( (year % 4 == 0) and (year % 100 > 0 or year % 400 == 0) ):
         return True
@@ -35,7 +34,6 @@ def divBy11(num):
         flip = not flip
     diff = (lf - ri) if (lf - ri) > 0 else -(lf - ri)
     return True if diff % 11 == 0 else False
-
 
 def strDivBy3(_str):
     _sum = 0
@@ -83,20 +81,36 @@ def strDivBy11(_str):
     diff = (lf - ri) if (lf - ri) > 0 else -(lf - ri)
     return True if diff % 11 == 0 else False
 
+'''
 def runTest():
     l = [121, 29458, 1353, 2543, 111, 1111, 87549, 439087]
     for num in l:
         stdout.write("%s %s\n" % (strDivBy11(str(num)), divBy11(num) ) )
-    
+'''   
 #runTest()
+#print(strDivBy4("43143543534534534512"))
+#print(strDivBy100("4314354353453453451200"))
 
-print(strDivBy4("43143543534534534512"))
-print(strDivBy100("4314354353453453451200"))
+def isLeapYearV2(num):
+    if( strDivBy4(num) and (not strDivBy100(num) or strDivBy400(num) ) ):
+        return True
+    else:
+        return False
+
 
 def run():
     while True:
         try:
             num = stdin.readline()
+            _text = []
+            if(isLeapYearV2(num)):
+                _text.append("This is leap year.\n")
+                if(strDivBy55(num)):
+                    _text.append('This is buluculu festival year.\n')
+            elif(strDivBy15(num)):
+                _text.append('This is huluculu festival year.\n')                
+            else:
+                stdout.write('This is an ordinary year.\n')
         except:
             break
 
