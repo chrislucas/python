@@ -37,9 +37,9 @@ def divBy11(num):
 
 def strDivBy3(_str):
     _sum = 0
-    for d in _str:
-        _sum += int(d)
-    return _sum % 3 == 0
+    for d in range(0, len(_str)):
+        _sum += int(_str[d])
+    return (_sum % 3) == 0
 
 def strDivBy4(_str):
     # slicing string
@@ -54,7 +54,9 @@ def strDivBy5(_str):
 def strDivBy15(_str):
     #n = int(_str)
     #return n % 3 == 0 and n % 5 == 0
-    return strDivBy3(_str) and strDivBy5(_str)
+    A = strDivBy3(_str)
+    B = strDivBy5(_str)
+    return  A and B 
 
 def strDivBy100(_str):
     return int(_str[-2:]) == 0
@@ -99,21 +101,38 @@ def isLeapYearV2(num):
 
 
 def run():
+    breakLine = False
     while True:
         try:
             num = stdin.readline()
-            _text = []
+            num = num.rstrip('\r\n')
+            _text = ''
+            if(breakLine):
+                stdout.write('\n')
+            F = False
             if(isLeapYearV2(num)):
-                _text.append("This is leap year.\n")
+                #_text.append("This is leap year.")
+                _text +='This is leap year.\n'
+                F = True
                 if(strDivBy55(num)):
-                    _text.append('This is buluculu festival year.\n')
-            elif(strDivBy15(num)):
-                _text.append('This is huluculu festival year.\n')                
-            else:
-                stdout.write('This is an ordinary year.\n')
-        except:
+                    #_text.append('This is buluculu festival year.')
+                    _text += 'This is bulukulu festival year.\n'
+            if(strDivBy15(num)):
+                F = True
+                #_text.append('This is huluculu festival year.') 
+                _text += 'This is huluculu festival year.\n'               
+            if(not F):
+                #_text.append('This is an ordinary year.')
+                _text += 'This is an ordinary year.\n'
+            #for t in range(0, len(_text)):
+                #_format = "%s" if t == 0 else "\n%s"  
+                #stdout.write(_format % (_text[t]))
+            stdout.write(_text)
+            breakLine = True
+        except Exception as e:
+            #print(e)
             break
-
+run()
 
 if __name__ == '__main__':
     pass
