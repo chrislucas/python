@@ -48,9 +48,9 @@ def expFFF(b, e):
         b *= b 
     return rs * b
 
-print(expF(3, 11))
-print(expFF(3, 11))
-print(expFFF(3, 11))
+print(expF(5, 17))
+print(expFF(5, 17))
+print(expFFF(5, 17))
 
 
 if __name__ == '__main__':
