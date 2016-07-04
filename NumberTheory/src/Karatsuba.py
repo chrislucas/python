@@ -44,7 +44,8 @@ def karatsuba_ofman(u, v, n):
         return x
 print(fexp(10, 7))
 print(karatsuba_ofman(6514202, 9898989, 7))
-print(karatsuba_ofman(120, 9898, 4))
+print(karatsuba_ofman(9999, 7777, 4))
+print(karatsuba_ofman(9999, 7, 4))
 
 if __name__ == '__main__':
     pass
