@@ -2,6 +2,7 @@
 Created on 5 de jul de 2016
 
 @author: C.Lucas
+DONE
 https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers
 
 http://xahlee.info/perl-python/complex_numbers.html
@@ -9,17 +10,11 @@ https://docs.python.org/3/c-api/complex.html
 http://mundoeducacao.bol.uol.com.br/matematica/potencia-i.htm
 '''
 from sys import stdin, stdout
+from math import sqrt
 
 '''
 http://xahlee.info/perl-python/complex_numbers.html
-'''
-
-
-'''
 http://pessoal.sercomtel.com.br/matematica/medio/ncomplex/ncomplex.htm
-'''
-
-'''
 http://mundoeducacao.bol.uol.com.br/matematica/divisao-numeros-complexos.htm
 '''
 
@@ -68,11 +63,26 @@ def divComplexNumbers(rA, iA, rB, iB):
 
 '''
 http://www.profcardy.com/cardicas/modulo-numero-complexo.php
+http://pessoal.sercomtel.com.br/matematica/medio/ncomplex/ncomplex.htm#nc09
 '''
 def modComplexNumber(rA, iA):
-    a = complex(rA, iA)
-    return None
+    a = complex(sqrt(rA*rA+iA*iA), 0)
+    return a
+
+'''
+https://en.wikipedia.org/wiki/Complex_number#Absolute_value_and_argument
+http://pessoal.sercomtel.com.br/matematica/medio/ncomplex/ncomplex.htm#nc09
+http://www.profcardy.com/cardicas/argumento-numero-complexo.php
+'''
+def argumentComplexNumber(rA, iA):
+    hipo = modComplexNumber(rA, iA)
+    cos = rA / hipo.real
+    sen = iA / hipo.real
+    tan = iA / ra
+    return [cos,sen]
     
+def complexToMatrix(rA, iA):
+    return [ [rA, -iA], [iA, rA] ]
 def runTests():
     #cca = complex(2,1)
     #ccb = complex(5,6)
@@ -90,20 +100,16 @@ def runTests():
     divComplexNumbers(2, 5, 1, -2)
     divComplexNumbers(4, 3, 2, 6)
 
-'''
-http://www.profcardy.com/cardicas/modulo-numero-complexo.php
-http://www.profcardy.com/cardicas/modulo-numero-complexo.php
-'''
-
-def modComplexNumbers():
-    return None
-
 def run():
-    _realA, _imagA = [int(x) for x in stdin.readline().split(" ")]
-    _realB, _imagB = [int(x) for x in stdin.readline().split(" ")]
+    _realA, _imagA = [float(x) for x in stdin.readline().split(" ")]
+    _realB, _imagB = [float(x) for x in stdin.readline().split(" ")]
     ans = sumComplexNumbers(_realA, _imagA, _realB, _imagB)
+    '''
     # https://pyformat.info/
-    #https://docs.python.org/3.1/library/string.html
+    # https://docs.python.org/3.1/library/string.html
+    http://stackoverflow.com/questions/7746143/formating-complex-numbers-in-python
+    '''
+    
     msg = '{:.2f}{:s}{:.2f}i\n'.format(ans.real, '' if ans.imag < 0 else '+', ans.imag)
     
     ans = minusComplexNumbers(_realA, _imagA, _realB, _imagB)
@@ -115,6 +121,11 @@ def run():
     ans = divComplexNumbers(_realA, _imagA, _realB, _imagB)
     msg += '{:.2f}{:s}{:.2f}i\n'.format(ans.real, '' if ans.imag < 0 else '+', ans.imag)
     
+    ans = modComplexNumber(_realA, _imagA)
+    msg += '{:.2f}{:s}{:.2f}i\n'.format(ans.real, '' if ans.imag < 0 else '+', ans.imag)
+    
+    ans = modComplexNumber(_realB, _imagB)
+    msg += '{:.2f}{:s}{:.2f}i\n'.format(ans.real, '' if ans.imag < 0 else '+', ans.imag)
     stdout.write(msg)
     
 run()
