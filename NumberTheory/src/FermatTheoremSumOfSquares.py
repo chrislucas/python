@@ -9,7 +9,7 @@ https://brilliant.org/wiki/fermats-sum-of-two-squares-theorem/?utm_medium=social
 from sys import stdout
 
 from datetime import datetime
-from sympy.mpmath.libmp.libintmath import isprime
+#from sympy.mpmath.libmp.libintmath import isprime
 from math import ceil, sqrt, floor
 
 class Eratosthenes:
@@ -40,7 +40,7 @@ class Eratosthenes:
     Testando a ideia dess blog
     '''
     def isFactorTwoSquares(self, prime):
-        if(prime < self.quantity and isprime(prime)):
+        if(prime < self.quantity and Eratosthenes.isPrime(prime)):
             # nehum numero primo que quando dividido por quatro deixa
             # resto 3 pode ser expresso numa soma de 2 quadrados
             # LOUCARA HEIN

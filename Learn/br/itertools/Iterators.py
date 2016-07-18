@@ -41,8 +41,8 @@ def f(m, n):
     return m % n
 
 def run_test_map(limit):
-    _map_object = map(lambda x : x**3, range(limit))
-    print("%s\n" % ([v for v in _map_object]))
+    #_map_object = map(lambda x : x**3, range(limit))
+    #print("%s\n" % ([v for v in _map_object]))
     
     # dictonary comprehension
     #print( { k:v for k,v in {10:5,12:3}.items() })
@@ -51,12 +51,8 @@ def run_test_map(limit):
     http://stackoverflow.com/questions/10834960/how-to-do-multiple-arguments-to-map-function-where-one-remains-the-same-in-pytho
     '''
     print( "%s\n" % ( [f(k,v) for k,v in {10:6,12:7}.items() ]) )
-    
-    from itertools import repeat
     print( "%s\n" % ( [i for i in repeat(2, 10) ] ) )
     print( "%s\n" % ( list(map(f, range(limit), repeat(2, limit))) ) )
-    
-    
     
     #for k in map(pow, range(limit), repeat(2)):
         #print(k)   
