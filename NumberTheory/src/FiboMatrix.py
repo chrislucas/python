@@ -12,11 +12,11 @@ http://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
 '''
 from sys import stdout, stdin
 
-def fibo(a, b, m, mod):
+def fibo(a, b, m):
     mat = [ [b, b], [b, a]]
     aux = [ [b, b], [b, a]]
     i = 1
-    while i < m:
+    while i <= m:
         a1 =  mat[0][0] * aux[0][0] +  mat[0][1] * aux[1][0]
         a2 =  mat[0][0] * aux[0][1] +  mat[0][1] * aux[1][1]
         a3 =  mat[1][0] * aux[0][0] +  mat[1][1] * aux[1][0]
@@ -28,6 +28,7 @@ def fibo(a, b, m, mod):
         i+=1
     return mat[1][1]
 
+print(fibo(0,1,1001))
 
 def multiply(mat, cpy, mod):
         a1 =  (((mat[0][0] % mod) * (cpy[0][0] % mod) % mod) +  ((mat[0][1] % mod) * (cpy[1][0] % mod) % mod)) % mod
