@@ -25,9 +25,19 @@ def frequency(array):
     if len(freq) == 1 :
         return fact(len(array))
     else:
-        for k in freq:
-            k
-        
+        n = 0
+        picked = 0
+        combination = 1
+        while True:
+            if n in freq:
+                picked += freq[n]
+            
+            if picked > 0:
+                combination = ((combination % MOD) * (picked % MOD)) % MOD
+                picked -= 1
+                n += 1
+            else:
+                break
     return freq
 
 frequency([0,0,1,2])
