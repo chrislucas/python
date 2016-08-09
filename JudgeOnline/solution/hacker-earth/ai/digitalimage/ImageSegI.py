@@ -61,7 +61,9 @@ http://stackoverflow.com/questions/22051069/how-do-i-find-the-connected-componen
 
 def dfs(mat, visited, x, y, set):
     visited[x][y] = set
-    
+    limitW = 0
+    for i in ramge(0, len(mat[x])):
+        i
     return None
 
 def run(mat):

@@ -26,7 +26,8 @@ For example, the years 1700, 1800, and 1900 are not leap years, but the year 200
 '''
 
 def isLeap(year):
-    if( (year % 4 == 0 or year % 400 == 0) and (not (year % 100 == 0) or year % 400 == 0)  ):
+    #if( (year % 4 == 0 or year % 400 == 0) and (not (year % 100 == 0) or year % 400 == 0)  ):
+    if( (year % 4 == 0 and year % 100 > 0) or year % 400 == 0):
         return True
     else:
         return False
