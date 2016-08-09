@@ -4,6 +4,7 @@ Created on May 31, 2016
 @author: christoffer
 
 https://www.hackerrank.com/challenges/picking-cards
+https://en.wikipedia.org/wiki/Rule_of_product
 '''
 
 MOD = 1000000007;
