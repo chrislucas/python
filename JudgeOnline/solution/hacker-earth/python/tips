@@ -1,0 +1,10 @@
+https://wiki.python.org/moin/PythonSpeed/PerformanceTips
+https://www.quora.com/How-fast-is-string-concatenation-in-Python
+
+Interessante uso do rstrip rstrip('\r\n')
+http://stackoverflow.com/questions/275018/how-can-i-remove-chomp-a-newline-in-python
+
+Cutting and slicing strings in Python
+http://pythoncentral.io/cutting-and-slicing-strings-in-python/
+https://docs.python.org/3/library/stdtypes.html
+https://docs.python.org/3.1/library/string.html
