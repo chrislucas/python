@@ -12,12 +12,18 @@ http://br.spoj.com/problems/TEOBALDO/
 http://www.spoj.com/problems/PT07Y/
 https://charieblog.wordpress.com/2011/09/15/list-of-interesting-problems-on-spoj/
 '''
-import urllib2
+
+'''
+using urllib2 python 3
+https://docs.python.org/3/howto/urllib2.html
+'''
+from urllib import request
+
 from sys import stdout
-from piston_mini_client.validators import validate
+
 
 def openOnlineFile(url):
-    _file = urllib2.urlopen(url)
+    _file = request.urlopen(url)
     for line in _file:
         stdout.write("%s" % (line))
 
@@ -35,12 +41,12 @@ class Quickfind(object):
         None
      
     def connected(self, p, q):
-        validate(p)
-        validate(q)
+        self.validate(p)
+        self.validate(q)
         return id[p] == id[q]
      
     def find(self, p):
-        validate(p)
+        self.validate(p)
         return id[p]
     
     '''
@@ -54,8 +60,8 @@ class Quickfind(object):
             raise
         
     def union(self, p, q):
-        validate(p)
-        validate(q)
+        self.validate(p)
+        self.validate(q)
         pId = id[p]
         qId = id[q]
         
@@ -68,13 +74,14 @@ class Quickfind(object):
                 id[i] = qId
         self.count -= 1
 
-qf = Quickfind(2)
+qf = Quickfind(3)
 qf.validate(2)
 
-files = ['http://algs4.cs.princeton.edu/15uf/tinyUF.txt'
-         ,'http://algs4.cs.princeton.edu/15uf/mediumUF.txt'
-         ,'http://algs4.cs.princeton.edu/15uf/largeUF.txt'
-        ]
+files = [
+    'http://algs4.cs.princeton.edu/15uf/tinyUF.txt'
+    ,'http://algs4.cs.princeton.edu/15uf/mediumUF.txt'
+    ,'http://algs4.cs.princeton.edu/15uf/largeUF.txt'
+]
 
 openOnlineFile(files[0])
     
