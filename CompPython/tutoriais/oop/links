@@ -1,8 +1,11 @@
 https://docs.python.org/3/tutorial/classes.html
 
-
+https://docs.python.org/3.4/tutorial/classes.html
 Metodo __init__
 https://docs.python.org/3/reference/datamodel.html#object.__init__
 
 Pesquisar
 OO python 3
+
+Override constructor method
+http://stackoverflow.com/questions/8333354/how-to-override-constructor-of-python-class-with-many-arguments
