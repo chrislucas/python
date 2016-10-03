@@ -18,16 +18,21 @@ class Heap:
     # class attribute. Variavel compartilhada por todas as instancias
     # _heap = []
     
-    def __init__(self, array = [], _type = 1):
+    def __init__(self, array = []):
         '''
         Constructor
         '''
         # instance variable, unique to each instance
         self._heap = array   
-        if(_type == 1):
+
+
+    def build(self, sort=1):
+        if(sort == 1):
             self.buildMinHeap()
         else:
             self.buildMaxHeap()
+
+    
     '''
         Max heap: o valor do no Pai na arvore binaria completa eh maior
         que os valores dos nos filhos a esquerda e a direita
@@ -127,12 +132,18 @@ class Heap:
         for x in range(sz//2, -1, -1):
             self.minHeapify(x)
     
-    def heapsort(self, order = 1):
+    def _heapsort(self, order = 1):
         if(order == 1):
             self.buildMinHeap()
         else:
             self.buildMaxHeap()
-        return None
+        sz = len(self._heap) - 1
+        for x in range(sz, 1, -1):
+            self.swap(0, x)
+            if(order == 1):
+                self.minHeapify(x)
+            else:
+                self.maxHeapify(x)
             
     def getHeap(self):
         return self._heap
@@ -144,6 +155,7 @@ array2D = [
     ,[8,7,6,3,2,4,5]
     ,[1,4,3,7,8,9,10]
     ,[10,8,9,7,4,1,3]
+    ,[10,8,9,7,6,5,4]
 ]
 
 '''
@@ -162,10 +174,11 @@ Copiar array2D
 #print(id(array2D), id(_copy))
 
 # passando uma copia do array, nao a referencia
-heap = Heap(array2D[2][:], 2)
-print (heap.size(), array2D[2], heap.getHeap())
-
-#print( list(range(10, -1, -1)) )
+heap = Heap(array2D[6][:])
+heap.build()
+#print (heap.size(), array2D[6], heap.getHeap())
+#heap.heapsort()
+print(heap.getHeap())
 
 if __name__ == '__main__':
     pass

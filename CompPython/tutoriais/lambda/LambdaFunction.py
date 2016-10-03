@@ -3,10 +3,6 @@ Created on 29 de mai de 2016
 
 @author: C.Lucas
 '''
-import functools
-import random
-
-
 '''
 Python supports the creation of anonymous functions
 at runtime, using a construct called 'lambda' \0/
@@ -14,6 +10,10 @@ at runtime, using a construct called 'lambda' \0/
 This lambda function is not same lambda FP languages.
 
 '''
+
+import functools
+import random
+
 
 def sFastExp(b, e):
     if(e < 0):

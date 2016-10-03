@@ -3,8 +3,8 @@ Created on Jun 3, 2016
 
 @author: christoffer
 '''
-from sys import stdout
 from math import log, log10
+from sys import stdout
 
 
 def tableTruth(n):

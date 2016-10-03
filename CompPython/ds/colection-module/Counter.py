@@ -5,8 +5,8 @@ Created on 8 de ago de 2016
 
 https://docs.python.org/2/library/collections.html
 '''
-from sys import stdin, stdout
 from collections import Counter
+from sys import stdin, stdout
 
 
 # class collections.Counter([iterable-or-mapping])

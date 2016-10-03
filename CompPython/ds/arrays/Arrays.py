@@ -3,14 +3,15 @@ Created on May 17, 2016
 
 @author: christoffer
 '''
-import os
-
 '''
 Arrays
 http://www.i-programmer.info/programming/python/3942-arrays-in-python.html
 http://www.i-programmer.info/programming/python/3942-arrays-in-python.html?start=1
 http://stackoverflow.com/questions/27760831/assigning-values-to-an-array-with-for-loop-python
 '''
+
+import os
+
 
 def initialize_array_1d(M = 1):
     array_list = [None] * M

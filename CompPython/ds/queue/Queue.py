@@ -3,7 +3,6 @@ Created on Apr 26, 2016
 
 @author: christoffer
 '''
-import queue
 '''
 data structure
 https://docs.python.org/3/tutorial/datastructures.html
@@ -19,11 +18,16 @@ http://stackoverflow.com/questions/9289614/how-to-put-items-into-priority-queues
 http://stackoverflow.com/questions/21768493/python3-queue-priorityqueue-changes
 https://docs.python.org/3/library/queue.html
 '''
+
+from collections import deque
+from queue import PriorityQueue
+import queue
+
+
 class Data:
     def __init__(self, value):
         self.value = value
 
-from queue import PriorityQueue
 
 def usePQ():
 
@@ -43,7 +47,6 @@ def usePQ():
 
     
 
-from collections import deque
 def useDq():
     print( deque( ['A', 'C', 'D'] ) )
 

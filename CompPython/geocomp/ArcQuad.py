@@ -3,12 +3,13 @@ Created on Apr 27, 2016
 
 @author: christoffer
 '''
-import math
-from math import ceil
-
 '''
 http://www.tutorbrasil.com.br/estudo_matematica_online/faq_matematica/4arcosnoquad.php
 '''
+
+from math import ceil
+import math
+
 
 def area(ladoQuad):
     # area do quadrado

@@ -17,9 +17,8 @@ https://charieblog.wordpress.com/2011/09/15/list-of-interesting-problems-on-spoj
 using urllib2 python 3
 https://docs.python.org/3/howto/urllib2.html
 '''
-from urllib import request
-
 from sys import stdout
+from urllib import request
 
 
 def openOnlineFile(url):
