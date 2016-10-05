@@ -56,60 +56,66 @@ class Heapsort():
         idxp = (idx - 1) // 2
         return  idxp if idx != 0 and (self.validate(idxp)) else -1  
     
-    def maxHeapify(self, idx):
-        lf = self.left(idx)
-        ri = self.right(idx)
-        if(lf >= 0 and self._heap[lf] > self._heap[idx]):
+    def maxHeapify(self, idx, sz):
+        lf = 2 * idx + 1
+        ri = 2 * idx + 2
+        
+        if(lf < sz and self._heap[lf] > self._heap[idx]):
             _greatest= lf
         else:
             _greatest = idx
-        if(ri >= 0  and self._heap[ri] > self._heap[_greatest]):
+        if(ri < sz  and self._heap[ri] > self._heap[_greatest]):
             _greatest = ri
         if(_greatest != idx):
             self.swap(idx, _greatest)
-            self.maxHeapify(_greatest)
+            self.maxHeapify(_greatest, sz)
             
             
-    def minHeapify(self, idx):
-        lf = self.left(idx)
-        ri = self.right(idx)
-        if(lf >= 0 and self._heap[lf] < self._heap[idx]):
+    def minHeapify(self, idx, sz):
+        lf = 2 * idx + 1
+        ri = 2 * idx + 2
+        if(lf < sz and self._heap[lf] < self._heap[idx]):
             _smallest = lf
         else:
             _smallest = idx
-        if(ri >= 0  and self._heap[ri] < self._heap[_smallest]):
+        if(ri < sz  and self._heap[ri] < self._heap[_smallest]):
             _smallest = ri
         if(_smallest != idx):
             self.swap(idx, _smallest)
-            self.minHeapify(_smallest)
+            self.minHeapify(_smallest, sz)
             
     def buildMaxHeap(self):
-        sz = len(self._heap)
+        sz = len(self._heap) - 1
         for x in range(sz//2, -1, -1):
-            self.maxHeapify(x)
+            self.maxHeapify(x, len(self._heap))
     
     def buildMinHeap(self):
-        sz = len(self._heap)
-        for x in range(sz//2, -1, -1):
-            self.minHeapify(x)
-    
-    def sort(self, order = 1):
-        if(order == 1):
-            self.buildMinHeap()
-        else:
-            self.buildMaxHeap()
-        '''
-            apos montar o heap, seja maximo ou minimo
-            o primeiro elemento sera o maiour caso for montado o heapmax
-            ou o menor do array caso contrario
-        '''    
         sz = len(self._heap) - 1
-        for x in range(sz, 1, -1):
+        for x in range(sz//2, -1, -1):
+            self.minHeapify(x, len(self._heap))
+    
+    def sort(self, order = 2):
+        '''
+            usando a propriedade do heapmax ordenamos em ASC, com 
+            heapmin ordenamos em DESC
+        '''
+        self.buildMaxHeap() if(order == 2) else self.buildMinHeap()     
+        sz  = len(self._heap)
+        lim = sz - 1
+        for x in range(lim, 0, -1):
+            '''
+                trocamos o primeiro elemento com o ultimo
+            '''
             self.swap(0, x)
-            if(order == 1):
-                self.minHeapify(x)
+            '''
+                diminuimos o tamanho do heap excluindo o ultimo
+                elemento, garantindo que ele nao seja alterado
+            '''
+            sz -= 1
+            if(order == 2):
+                self.maxHeapify(0, sz)
             else:
-                self.maxHeapify(x)
+                self.minHeapify(0, sz)
                 
     def getHeap(self):
         return self._heap
@@ -127,8 +133,8 @@ array2D = [
 ]
 
 heap = Heapsort(array2D[1][:])
-print(heap.getHeap())
-heap.sort(1)
+#print(heap.getHeap())
+heap.sort()
 print(heap.getHeap())
 
 

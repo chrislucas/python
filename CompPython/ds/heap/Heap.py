@@ -39,7 +39,7 @@ class Heap:
     '''
    
     def size(self):
-        return len(self._heap)
+        return len(self._heap) - 1
    
     def swap(self, a, b):
         aux = self._heap[a]
@@ -72,7 +72,7 @@ class Heap:
         idxp = (idx - 1) // 2
         return  idxp if idx != 0 and (self.validate(idxp)) else -1
     # metodo para manter a propriedade de maxheap
-    def maxHeapify(self, idx):
+    def maxHeapify(self, idx, sz):
         '''
         idx representa o indice do no raiz do heap
         a formula abaixo aplicasse para idx comecando de 0
@@ -85,14 +85,14 @@ class Heap:
         4 lf:3, ri:2
         5 lf:0, ri:1
         '''
-        lf = self.left(idx)  #2 * idx + 1
-        ri = self.right(idx) #2 * idx + 2
+        lf = 2 * idx + 1
+        ri = 2 * idx + 2
         '''
             verifica se  o no a esquerda tem um valor maior
             que o do no pai
             se simpega o indice do no da esquerd
         '''
-        if(lf>-1 and self._heap[lf] > self._heap[idx]):
+        if(lf < sz and self._heap[lf] > self._heap[idx]):
             lg = lf
         else:
             # se map foca com o indice do no pai mesmo
@@ -102,55 +102,76 @@ class Heap:
             que o do no (pai ou da esquerda, depende
             do que acontecer no condicional acima)
         '''
-        if(ri>-1 and self._heap[ri] > self._heap[lg]):
+        if(ri < sz and self._heap[ri] > self._heap[lg]):
             lg = ri
             
         if(lg != idx):
             self.swap(idx, lg)
-            self.maxHeapify(lg)
+            self.maxHeapify(lg, sz)
     
-    def minHeapify(self, idx):
-        lf = self.left(idx)
-        ri = self.right(idx)
-        if(lf >= 0 and self._heap[lf] < self._heap[idx]):
+    def minHeapify(self, idx, sz):
+        lf = 2 * idx + 1
+        ri = 2 * idx + 2
+        if(lf < sz and self._heap[lf] < self._heap[idx]):
             _smallest = lf
         else:
             _smallest = idx
-        if(ri >= 0  and self._heap[ri] < self._heap[_smallest]):
+        if(ri < sz  and self._heap[ri] < self._heap[_smallest]):
             _smallest = ri
         if(_smallest != idx):
             self.swap(idx, _smallest)
-            self.minHeapify(_smallest)
+            self.minHeapify(_smallest, sz)
             
     def buildMaxHeap(self):
         sz = self.size()
         for x in range(sz//2, -1, -1):
-            self.maxHeapify(x)
+            self.maxHeapify(x, len(self._heap))
     
     def buildMinHeap(self):
         sz = self.size()
         for x in range(sz//2, -1, -1):
-            self.minHeapify(x)
+            self.minHeapify(x, len(self._heap))
     
-    def _heapsort(self, order = 1):
-        if(order == 1):
-            self.buildMinHeap()
-        else:
-            self.buildMaxHeap()
-        sz = len(self._heap) - 1
-        for x in range(sz, 1, -1):
+    def _heapsort(self, order = 2):
+        '''
+            A  ideia e montar o heap max, assim teremos como primeiro
+            elemento o maior elemento do array
+            usando a propriedade do heapmax ordenamos em ASC, com 
+            heapmin ordenamos em DESC
+        '''
+        self.buildMaxHeap() if(order == 2) else self.buildMinHeap()    
+        sz  = len(self._heap)
+        lim = sz - 1
+        '''
+            Array[n-1:0] assim 
+        '''
+        for x in range(lim, 0, -1):
+            '''
+                trocamos o primeiro elemento com o ultimo
+            '''
             self.swap(0, x)
-            if(order == 1):
-                self.minHeapify(x)
+            '''
+                diminuimos o tamanho do heap excluindo o ultimo
+                elemento, garantindo que ele nao seja alterado
+            '''
+            sz -= 1
+            '''
+                com a propriedade do heapmax ordenamos de forma ASCENDENTE
+                com a propriedade do heapmin ... Descendente
+            '''
+            if(order == 2):
+                self.maxHeapify(0, sz)
             else:
-                self.maxHeapify(x)
-            
+                self.minHeapify(0, sz)
+                
+                
     def getHeap(self):
         return self._heap
 
 array2D = [
      [4,5,1,6,7,3,2]
     ,[6,4,5,3,2,0,1]
+    ,[2,4,3,8,7,6,5]
     ,[4,7,8,3,2,6,5]
     ,[8,7,6,3,2,4,5]
     ,[1,4,3,7,8,9,10]
@@ -174,10 +195,10 @@ Copiar array2D
 #print(id(array2D), id(_copy))
 
 # passando uma copia do array, nao a referencia
-heap = Heap(array2D[6][:])
-heap.build()
+heap = Heap(array2D[2][:])
+#heap.build(2)
 #print (heap.size(), array2D[6], heap.getHeap())
-#heap.heapsort()
+heap._heapsort()
 print(heap.getHeap())
 
 if __name__ == '__main__':
