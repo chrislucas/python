@@ -17,19 +17,6 @@ class Heapsort():
         '''
         self._heap = array
 
-    
-    def add(self, e):
-        return None
-    
-    def removeMin(self):
-        return None
-    
-    def getMin(self):
-        return None
-    
-    def getMax(self):
-        return None
-    
     def build(self, sort):
         if(sort == 1):
             self.buildMinHeap()
@@ -119,6 +106,22 @@ class Heapsort():
                 
     def getHeap(self):
         return self._heap
+    
+    def maxE(self):
+        return self._heap[0]
+    
+    def minE(self):
+        return self._heap[len(self._heap)-1]
+    
+    def extractMax(self):
+        if(len(self._heap) > 0):
+            _max = self._heap[0]
+            _len = len(self._heap)
+            self._heap[0] = self._heap[_len-1]
+            self.maxHeapify(0, _len)
+            return _max
+        else:
+            return -1
     
 array2D = [
      [4,5,1,6,7,3,2]

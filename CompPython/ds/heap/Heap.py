@@ -167,6 +167,22 @@ class Heap:
                 
     def getHeap(self):
         return self._heap
+    
+    def maxE(self):
+        return self._heap[0]
+    
+    def minE(self):
+        return self._heap[len(self._heap)-1]
+    
+    def extractMax(self):
+        if(len(self._heap) > 0):
+            _max = self._heap[0]
+            _len = len(self._heap)
+            self._heap[0] = self._heap[_len-1]
+            self.maxHeapify(0, _len)
+            return _max
+        else:
+            return -1
 
 array2D = [
      [4,5,1,6,7,3,2]
@@ -195,10 +211,10 @@ Copiar array2D
 #print(id(array2D), id(_copy))
 
 # passando uma copia do array, nao a referencia
-heap = Heap(array2D[2][:])
-#heap.build(2)
+heap = Heap(array2D[0][:])
+heap.build(1)
 #print (heap.size(), array2D[6], heap.getHeap())
-heap._heapsort()
+#heap._heapsort()
 print(heap.getHeap())
 
 if __name__ == '__main__':
