@@ -27,12 +27,8 @@ class Heap:
 
 
     def build(self, sort=1):
-        if(sort == 1):
-            self.buildMinHeap()
-        else:
-            self.buildMaxHeap()
-
-    
+        self.buildMinHeap() if(sort == 1) else self.buildMaxHeap()
+        
     '''
         Max heap: o valor do no Pai na arvore binaria completa eh maior
         que os valores dos nos filhos a esquerda e a direita
@@ -177,12 +173,18 @@ class Heap:
     def extractMax(self):
         if(len(self._heap) > 0):
             _max = self._heap[0]
-            _len = len(self._heap)
-            self._heap[0] = self._heap[_len-1]
-            self.maxHeapify(0, _len)
+            self._heap[0] = self._heap[len(self._heap)-1]
+            self._heap.pop()
+            self.maxHeapify(0, len(self._heap))
             return _max
         else:
             return -1
+        
+    def add(self, x):
+        self.increase(x)
+    
+    def increase(self, x):
+        return None
 
 array2D = [
      [4,5,1,6,7,3,2]
@@ -193,29 +195,43 @@ array2D = [
     ,[1,4,3,7,8,9,10]
     ,[10,8,9,7,4,1,3]
     ,[10,8,9,7,6,5,4]
+    ,[2,8,5,1,10,5,9,9,3,5]
 ]
+def runTest():
+    '''
+    nao funciona para lista com mais de 1D
+    _copy = list(array[0][:]) #copy.deepcopy(array[0][:])
+    print(_copy)
+    
+    http://henry.precheur.org/python/copy_list
+    
+    Copiar array2D
+    [x[:] for x in array2D]
+    
+    '''
+    
+    #_copy = [x[:] for x in array2D]
+    #print(id(array2D), id(_copy))
+    
+    # passando uma copia do array, nao a referencia
+    heap = Heap(array2D[8][:])
+    heap.build(2)
+    #print (heap.size(), array2D[6], heap.getHeap())
+    #heap._heapsort()
+    print(heap.getHeap())
+    print(heap.extractMax())
+    print(heap.getHeap())
 
-'''
-nao funciona para lista com mais de 1D
-_copy = list(array[0][:]) #copy.deepcopy(array[0][:])
-print(_copy)
+def runTest2():
+    heap = Heap()
+    for x in array2D[8][:]:
+        heap.add(x)
+    print(heap._heap)
+    print(heap.extractMax())
+    print(heap._heap)
 
-http://henry.precheur.org/python/copy_list
-
-Copiar array2D
-[x[:] for x in array2D]
-
-'''
-
-#_copy = [x[:] for x in array2D]
-#print(id(array2D), id(_copy))
-
-# passando uma copia do array, nao a referencia
-heap = Heap(array2D[0][:])
-heap.build(1)
-#print (heap.size(), array2D[6], heap.getHeap())
-#heap._heapsort()
-print(heap.getHeap())
+runTest()
+#print( [ array2D[8][x] for x in range(0, 3)] )
 
 if __name__ == '__main__':
     pass

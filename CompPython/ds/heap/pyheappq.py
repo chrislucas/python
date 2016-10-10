@@ -38,14 +38,35 @@ class Neg:
         #return cmp(self.x, obj.x)
         return None
 
-def test():
+def test_heapify_min_max():
     _copy = array2D[0][:]
     print(_copy)
     #heapq.heapify(_copy)
     heapq._heapify_max(_copy)
     print(_copy)
+    
+#test_heapify_min_max()
 
 
-test()
+def _heapsort(array):
+    _arr = []
+    for x in array:
+        heapq.heappush(_arr, x)
+    # list comprehesion
+    # [heapq.heappop(_arr) for i in range(len(_arr))]
+    ans = []
+    i = 0
+    while i < len(_arr):
+        x = heapq.heappop(_arr)
+        ans.append(x)
+        
+    return  ans
+
+print(_heapsort([0,3,1,2,-5,0]))
+
+def test_s():
+    return None
+
+
 if __name__ == '__main__':
     pass
