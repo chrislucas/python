@@ -1,0 +1,69 @@
+https://www.hackerrank.com/challenges/basic-probability-puzzles-7/forum
+https://pt.wikipedia.org/wiki/Teorema_de_Bayes
+https://brilliant.org/wiki/bayes-theorem/
+https://www.mathsisfun.com/data/bayes-theorem.html
+http://www.ime.unicamp.br/~veronica/Coordenadas1s/aula3pr.pdf
+https://en.wikipedia.org/wiki/Bayes%27_theorem
+https://en.wikipedia.org/wiki/Conditional_probability
+
+
+P(A ou B) = P(A) + P(B) - P(A e B)
+se A e B nao sao mutuamente exclusivos
+se for entao -> P(A ou B) = P(A) + P(B)
+porque (A e B da um conjunto vazio)
+Exemplo:
+Num conjunto numeros de 1 a 20 quais sao as
+chances de escolher um numeros par ou impar
+A = 10/20, B = 10/20
+A e B sao mutuamente exclusivos, um numero eh par ou impar 
+
+Probabilidade condicional
+P(A|B) = P(A e B) / P(B) 
+P(B|A) = P(A e B) / P(A)
+
+Consequencia da Probabilidade condicional
+P(A|B) = P(A e B) / P(B) => P(A e B) = P(A|B) * P(B)
+P(B|A) = P(A e B) / P(A) => P(A e B) = P(A|B) * P(A)
+
+Problema exemplo 1
+Numa urna com bolas numeradas de 1 a 20, uma bola
+eh retirada
+Qual a probabilidade de ter saido um numero primo
+
+S = {1..20}
+A = numeros impares {1,3,5,7...19} = 8
+B = numeros primos {2,3,5,7...19} = 7
+S = 20
+Resposta:
+Qual a probabilidade de ocorrer B se ja ocorreu a
+A = 8/20
+B = 7/20
+P(B|A) = P(A e B) / P(A) 
+= 56/400 / 8/20
+= 7/50 / 2/5 = 35/100 simplificando dividindo N/D por 5
+= 7/10
+
+Problema exemplo 2
+
+Urna A contem 2 bolas V e 3 bolas B
+Urna B contem 4 bolas V e 5 bolas B
+
+TA = 5 PAV(2/5) PAB(3/5)
+TB = 9 PBV(4/9) PBB(5/9)
+
+Qual a probabilidade de observarmos A Urna A e uma bola V
+P(A ou B) = 1/2
+P(V E A) = 2/5 e 1/2 = 2/10 = 1/5
+
+outra solucao
+P(V|A) = P(V e A) / P(A) = 2/10 / 1/2 = 4/10 = 2/5
+P(V E A) =  P(V) * P(V|A) = 1/2 * 2/5 = 2/10 = 1/5
+
+Teorema da probabilidade Total
+
+
+
+Princípio de Bernoulli
+https://pt.wikipedia.org/wiki/Princ%C3%ADpio_de_Bernoulli
+
+
