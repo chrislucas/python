@@ -47,15 +47,30 @@ def fx(a, b):
     return ans
 
 def solver(n):
-    divs = divisors(n)
     ans = 1
-    if(len(divs) > 1):
+    if(n > 1):
+        divs = divisors(n)
         ans = fx(divs[0], divs[1])
         for idx in range(2, len(divs)-1):
             prev = fx(divs[idx], divs[idx+1])
             ans = fx(prev, ans)
     return ans
 
+def solver2(n):
+    '''
+    Numeros impares nao possui divisores pares
+    '''
+    from math import sqrt
+    limit = int(sqrt(n))
+    step = 2 if((n & 1) == 1) else 1
+    ans = 1
+    for x in range(2, n, step):
+        if(n % x == 0):
+            ans = fx(ans, x)
+
+    ans = fx(ans, n)
+    return ans        
+    
 #print(*divisors(12))
 n = readInt()
-print(solver(n))
+print(solver2(n))
