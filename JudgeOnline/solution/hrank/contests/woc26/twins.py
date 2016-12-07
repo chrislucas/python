@@ -7,10 +7,9 @@ https://www.hackerrank.com/contests/w26/challenges/twins
 
 '''
 
-sz = 10000000
-numbers = [] #[True] * (sz+1)
+numbers = []
 
-def sieveErathostenes():
+def sieveErathostenes(sz = 100):
     primes  = []
     numbers = [True] * (sz+1)
     numbers[0], numbers[1] = [False, False]
@@ -28,6 +27,22 @@ def sieveErathostenes():
     #print(len(primes))
     return primes
 
+def sieve(sz = 10**9):
+    i = 2
+    p = []
+    while(i*i <= sz):
+        j = 2
+        f = True
+        while(j*j <= i):
+            if((i % j) == 0):
+                f = False
+                break
+            j += 1
+        if(f):
+            p.append(i)
+        i+=1
+    return p
+
 def rangeSieve(a, b):
     primes = []
     if( (a & 1) == 0):
@@ -41,7 +56,6 @@ def rangeSieve(a, b):
     
 def isPrime(n):
     return numbers[n]
-
 
 def isPrimeSqrt(n):
     if(n < 2):
@@ -72,7 +86,6 @@ def run():
             count +=1
     print(count)
 
-
 def run2(): 
     a, b  = readInts()
     count = 0
@@ -85,22 +98,47 @@ def run2():
             if(b-a == 2):
                 count += 1
     return count
-    
-def getCurrentMilliseconds():
-    # http://stackoverflow.com/questions/5998245/get-current-time-in-milliseconds-in-python
-    from time import time
-    tm = lambda : int(round(time() * 1000))
-    return tm()        
 
-#sieveErathostenes()
-#print(isPrimeSqrt(903))
+def run3():
+    primes = sieve(10000000)
+    a, b  = readInts()
+    if(b > a):
+        aux = b
+        b = a
+        a = b
+    count, fst = [0,-1]
+    for i in range(a, b+1):
+        j = 0
+        p = primes[j]
+        f = True
+        while(j < len(primes) and p*p <= i):
+            p = primes[j]
+            if(i % p == 0):
+                f = False
+        
+        if(f and i > 1):
+            count += 1 if( fst == i-2) else 0
+            fst = i
+    
+    return count    
+
 '''
 1 1000000 = 8169
 203 10001 = 190
 999000000 1000000000 = 3063
 '''
-#run()
-print(run2())
+
+print(run3())
 
 if __name__ == '__main__':
     pass
+'''
+sieveErathostenes()
+print(isPrimeSqrt(903))
+'''
+
+def getCurrentMilliseconds():
+    # http://stackoverflow.com/questions/5998245/get-current-time-in-milliseconds-in-python
+    from time import time
+    tm = lambda : int(round(time() * 1000))
+    return tm()     
