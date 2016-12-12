@@ -6,12 +6,11 @@ http://introcs.cs.princeton.edu/java/14array/PrimeSieve.java.html
 https://www.hackerrank.com/contests/w26/challenges/twins
 
 '''
-
+from math import sqrt
 numbers = []
-
-def sieveErathostenes(sz = 100):
+def sieveErathostenes(sz = int(sqrt(1E9))):
     primes  = []
-    numbers = [True] * (sz+1)
+    numbers = [True] * ( sz + 1 )
     numbers[0], numbers[1] = [False, False]
     i = 2
     while (i*i <= sz):
@@ -27,12 +26,19 @@ def sieveErathostenes(sz = 100):
     #print(len(primes))
     return primes
 
-def sieve(sz = 10**9):
+
+def sieve(sz = int(1E9)):
     i = 2
     p = []
     while(i*i <= sz):
         j = 2
         f = True
+        '''
+        procurar um valor j que seja multiplo de i
+        se esse valor existir, ele sera no maximo igual a raiz quadrada de i
+        ( j <= sqrt(i) ou j^2 <= i
+        '''
+        #while(j <= int(sqrt(i))):
         while(j*j <= i):
             if((i % j) == 0):
                 f = False
@@ -53,6 +59,16 @@ def rangeSieve(a, b):
         if(isPrimeSqrt(x)):
             primes.append(x)
     return primes
+
+def countPrimesInterval(a, b):
+    if( (a & 1) == 0 or a == 2):
+        a+=1
+    count = 0
+    for x in range(a, b, 2):
+        y = x+2
+        if(isPrimeSqrt(x) and isPrimeSqrt(y) ):
+            count += 1    
+    return count
     
 def isPrime(n):
     return numbers[n]
@@ -60,7 +76,6 @@ def isPrime(n):
 def isPrimeSqrt(n):
     if(n < 2):
         return False
-    from math import sqrt
     lim = int(sqrt(n))
     for i in range(2, lim+1):
         if(n % i == 0):
@@ -100,25 +115,32 @@ def run2():
     return count
 
 def run3():
-    primes = sieve(10000000)
-    a, b  = readInts()
-    if(b > a):
+    primes  = sieveErathostenes()
+    a, b    = readInts()
+    if(b < a):
         aux = b
         b = a
-        a = b
-    count, fst = [0,-1]
-    for i in range(a, b+1):
+        a = aux
+    if(a == 1):
+        a = 3    
+    if(a & 1 == 0):
+        a += 1
+    # 'a' senore comecara no minimo do 3
+    count, lastNumber = [0,0]
+    for i in range(a, b+1, 2):
         j = 0
         p = primes[j]
-        f = True
+        hasDivisors = False
         while(j < len(primes) and p*p <= i):
-            p = primes[j]
             if(i % p == 0):
-                f = False
+                hasDivisors = True
+                break
+            p = primes[j]
+            j += 1
         
-        if(f and i > 1):
-            count += 1 if( fst == i-2) else 0
-            fst = i
+        if(not hasDivisors):
+            count += 1 if(i - lastNumber == 2) else 0
+            lastNumber = i
     
     return count    
 
@@ -126,7 +148,17 @@ def run3():
 1 1000000 = 8169
 203 10001 = 190
 999000000 1000000000 = 3063
+793231275 793692317 = 1474
+
+k = int(sqrt(1E9))
+sieveErathostenes(k)
+sieve(k)
 '''
+print(countPrimesInterval(1, 10))
+print(countPrimesInterval(3, 13))
+print(countPrimesInterval(1, 1000000))
+print(countPrimesInterval(203, 10001))
+print(countPrimesInterval(999000000, 1000000000))
 
 print(run3())
 
