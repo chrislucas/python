@@ -7,6 +7,7 @@ from math import log, log10
 from sys import stdout
 
 
+
 def tableTruth(n):
     for i in range(0,1<<n):
         for j in range(n-1, -1, -1): # ou range(0, n)

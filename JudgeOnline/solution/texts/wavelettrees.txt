@@ -1,0 +1,22 @@
+
+
+Merge sort tree like structure
+http://stackoverflow.com/questions/9543044/merge-sort-tree-like-structure
+
+
+http://progcomp.cl/post/153200885939/open-complaint-letter-to-icpc-latam-updated
+https://algorithmmarch.wordpress.com/2016/11/15/final-brasileira-da-maratona-2016/
+https://algorithmmarch.wordpress.com/2016/11/15/final-brasileira-da-maratona-2016/#comment-8
+
+segment tree
+http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
+http://codeforces.com/blog/entry/15890
+http://codeforces.com/blog/entry/18051
+
+
+persistent segment trees
+http://ideone.com/HdOhu1
+https://blog.anudeep2011.com/persistent-segment-trees-explained-with-spoj-problems/
+http://codeforces.com/blog/entry/15324
+https://www.quora.com/Sphere-Online-Judge-SPOJ-How-do-I-use-a-persistent-segment-tree-to-solve-a-problem
+https://i.cs.hku.hk/~provinci/training2016/notes4.pdf
