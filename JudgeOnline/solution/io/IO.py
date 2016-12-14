@@ -11,7 +11,7 @@ class CompIO():
         pass
     
     def getMapInt(self, fmt):
-        return map(int, stdin.readline().splt(fmt))
+        return map(int, stdin.readline().split(fmt))
     
     def readAndSplit(self, fmt):
         return stdin.readline().split(fmt)
