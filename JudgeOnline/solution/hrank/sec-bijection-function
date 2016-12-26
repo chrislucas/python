@@ -1,0 +1,117 @@
+https://www.hackerrank.com/challenges/security-bijective-functions?h_r=next-challenge&h_v=legacy
+#include <iostream>
+using namespace std;
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int m, n, c;
+    cin >> m;
+    bool F [] = {true, true,true, true,true, true,true, true,true, true,true, true,true,true,true, true, true, true,true, true};
+    c = m;
+    for(int o=0; o<m; o++) {
+        cin >> n;
+        if(F[n-1]) {
+           F[n-1] = false;
+            c--;
+        }
+    }
+    cout << ((c==0) ? "YES\n" : "NO\n");
+    return 0;
+}
+
+
+https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_(matem%C3%A1tica)
+http://mundoeducacao.bol.uol.com.br/matematica/dominio-contradominio-imagem-uma-funcao.htm
+
+definicao de funcao
+
+Sejam A e B 2 conjuntos nao vazios, denomina-se F uma
+funcao definida A em B por f: A -> B uma lei que indica
+como associar cada elemento 'x' em A com um unico element
+'y' em B
+
+Dominio, Contradominio e Imagem
+
+Seja A = {1,2,3,4,5,6}; B = {1,2,3,4,5,6, 7}
+f(x) = x + 1
+
+f(x) = y expressa a lei de correspondencia (relacao) dos elementos
+
+A -> dominio; B -> contradominio; subconjunto Imagem {2,3,4,5,6}
+
+*Dominio: Conjunto de partida. Todos os elementos do dominio devem possuir representacao
+no contradominio, do contrario a lei de formacao nao pode ser uma funcao
+
+*Contradominio. Conjunto de chegada
+
+Imagem: representado pelos elementos do contradominio que possuem correspondencia
+no dominio
+
+Classificacao conforme a imagem da funcao:
+usualmente classificadas conforme a sua imagem como, injetiva, sobrejetiva e bijetiva
+
+Seja a funcao f: X -> Y, y = f(x), por definicao 'f' eh injetiva
+se e somente se para todo x1 != x2 pertencente a Dom(f)
+temos f(x1) != f(x2)
+
+f(x), x^2 nao eh injetiva pois f(-2) = 4 e f(2) = 4
+-2 != 2 mais a funcao tem devolve o mesmo valor de correspondencia
+
+f eh sobrejetiva quando Im(f) = Y
+Todos os elementos do contradominio estao associados a algum elemento do
+dominio. O conjunto Imagem é igual ao conjunto contradominio
+
+*Definição de funcao bijetiva
+*Funcao bijetiva
+Cada elemento do dominio esta associado a um unico elemento do
+contradominio e vice-versa
+o conjunto imagem eh igual ao contradominio
+
+https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%B5es_impl%C3%ADcitas_e_expl%C3%ADcitas
+*Funcoes implicitas e explicitas
+Uma funcao f: X -> Y é dita explicita quando temos uma relacao
+da forma y = f(x), valores de y podem ser definidos pela
+variavel independete x
+
+Uma funcao e definida de forma implicita, quando a relacao
+entre as variaveis dependete e independete eh dada como
+f(x,y) = 0
+
+Uma funcao eh implicita se o valor de y eh obitido por
+x ao resolver uma equacao do tipo: f(x,y) =0
+
+
+* Funcao inversa
+se f eh uma funcao, entao a funcao inversa de f eh uma
+solucao da equacao para y em termos de x
+
+x = f(y) => y = f^(-1)(x)
+
+Intercambianos os papeis das variaveis dependentes e independentes
+f(x,y) = x - f(y)
+Exemplo
+funcao logaritmo natural, y = ln(x) eh a inversa de x - e ^ y = 0 (x = e ^ y)	
+
+ funcao W de lambert: https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_W_de_Lambert
+log-produto x - y(e^y) = (x = ey^y)
+
+* Variáveis dependentes e independentes
+https://pt.wikipedia.org/wiki/Vari%C3%A1veis_dependentes_e_independentes
+Uma funcao eh uma relacao entre 2 termos, x e y. Os valores de x sao dependentes
+de y, assim x eh a variavel indepedente e y a dependente
+
+
+* Composicao de funcao
+Dadas funcoes f: A -> B => y = f(x) e g: C -> D => y = f(x)
+com Im(g) contido em Dom(f) a composta de f com g =
+(f g): C -> B, (f g)(x) = f(g(x)) (a imagem de g contida no dominio de f)
+Analogamente a composta de g com f = (g f) : A -> D, (g f)(x) = g(f(x))
+Im(f) contida em Dom(g)
+
+Exemplo
+f(x) = 2x + 3 e g(x) = x-1
+composta de g com f = g(f(x)) = (2x+3)-1 // onde estiver o x em g() trocar pela funcao f()
+composta de f com g = f(g(x)) = 2(x-1) + 3 = 2x+1 // onde estiver o x em f() trocar pela funcao g()
+
+Funcao composta
+http://exercicios.mundoeducacao.bol.uol.com.br/exercicios-matematica/exercicios-sobre-funcao-composta.htm
+http://brasilescola.uol.com.br/matematica/funcao-composta.htm

@@ -1,0 +1,27 @@
+https://www.hackerrank.com/challenges/security-inverse-of-a-function
+https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_inversa
+
+
+Uma funcao inversa de f: X -> Y eh uma funcao, quando existe
+na forma f ^ (-1) : Y -> X
+Tal que 
+a composta de f e f^(-1) = y
+f^(-1) e f = x
+
+O que era dominio na funcao original (X) torna-se Imagem na funcao inversa
+O que era Imagem na funcao original (Y) torna-se dominio na funcao inversa
+
+Uma funcao invertivel tem uma unica inversa, condicao necessaria e suficiente
+para que uma funcao seja invertivel e bijetiva
+
+Exemplo: determinemos a inversa da funcao f(x) = x + 1
+trocamos f(x) por y
+y = x + 1
+isolamos o x 
+x = y - 1
+Podemos trocar x e y de lugar, pois usamos geralmente 'x'
+como variavel independente
+y = x - 1
+Assim f^(-1) (x) = x - 1
+
+http://brasilescola.uol.com.br/matematica/%20funcao-inversa.htm
